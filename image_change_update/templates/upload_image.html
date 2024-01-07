@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload and Display Image</title>
+</head>
+<body>
+    <h2>Upload Image</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if image %}
+        <h3>Uploaded Image:</h3>
+        <img src="{{ image.image.url }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
